@@ -1,88 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="Edwin Onywoki">
-    
-    <link rel='shortcut icon' href='../favicon.ico' type='image/x-icon'/>
-    <link rel = "icon" type = "image/png" href = "../assets/img/nakuruCountyLogo.jpg">
-
-<link href="../assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-
- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-   
-    
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    
-    <title>Nakuru County Projects Management System</title>
-    
-    <!-- Custom Fonts -->
-
-    <link href="../css/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" type="text/css" href="../assets/DataTables/datatables.min.css"/>
-    <!-- <script type="text/javascript" src="../assets/DataTables/DataTables/datatables.min.js"></script> -->
-    <link rel="stylesheet" type="text/css" href="../css/style.css">
-    
-    <link href="../assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="../assets/bootstrap/js/bootstrap.min.js" rel="stylesheet">
-   <!--  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
-    
-    <link href="../assets/DataTables/Datatables/css/dataTables.bootstrap.min.css" rel="stylesheet">
-    <link href="../assets/css/colReorder.bootstrap.min.css" rel="stylesheet">
-    <link href="../assets/css/buttons.dataTables.min.css" rel="stylesheet">
-    <link href="../assets/css/bootstrap-datepicker3.min.css" rel="stylesheet">
-    <link href="../assets/css/simptip.css" rel="stylesheet">
-    <!--link href="../assets/css/dataTables.colVis.css" rel="stylesheet"-->
-    
-    <!-- MetisMenu CSS -->
-    <link href="../assets/metismenu/dist/metisMenu.min.css" rel="stylesheet">
-    
-    <!-- Timeline CSS -->
-    <link href="../assets/dist/plugins/timeline.css" rel="stylesheet">
-    
-    <!-- Custom CSS -->
-    <link href="../assets/css/sb-admin-2.css" rel="stylesheet">
-
-    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-
-    <style type="text/css">
-        .panel {
-    border: 1px solid rgb(127, 0, 0);
-    border: 1px solid rgba(204, 204, 204, 0.5);
-    -webkit-background-clip: padding-box; /* for Safari */
-    background-clip: padding-box; /* for IE9+, Firefox 4+, Opera, Chrome */
-}
-    </style>
-
-    
-    <!-- DataTables CSS library -->
-<link rel="stylesheet" type="text/css" href="../assets/DataTables/datatables.min.css"/>
-
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-<!-- DataTables JS library -->
-<script type="text/javascript" src="../assets/DataTables/datatables.min.js"></script>
-
-<script>
+     <?php include('../includes/links.php');?>
+<!-- <script>
 $(document).ready(function(){
-    $('#memListTable').DataTable({
+    $('#county_data').DataTable({
         "processing": true,
         "serverSide": true,
         "ajax": "getData.php"
     });
 });
+</script> -->
+
+<script>
+$(document).ready(function(){
+  $('.dropdown a.dropdown-toggle').on("click", function(e){
+    $(this).next('ul').toggle();
+    e.stopPropagation();
+    e.preventDefault();
+  });
+});
 </script>
-
-
 </head>
 
 <body>
@@ -133,56 +71,112 @@ $(document).ready(function(){
             <li class="dropdown">
                     <a class="dropdown-toggle" href="#" id="navbarDropdown reports" role="" data-toggle="dropdown" aria-haspopup="true" aria-expanded=""> <i class="fa fa-bar-chart-o fa-fw"></i>Report</a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown" style="border:none; margin-left: 20px;">
-                            <li><a href="#">Projects by Sub-county</a></li>
-                            <li><a href="#">Projects by Ward</a></li>
-                            <li><a href="#">Projects by Sub-ward</a></li>
+                            <li><a href="projects_per_subcounty.php">Projects by Sub-county</a></li>
+                            <li><a href="projects_per_ward.php">Projects by Ward</a></li>
+                            <li><a href="projects_per_subward.php">Projects by Sub-ward</a></li>
                             <li class="dropdown">
                     <a class="dropdown-toggle" href="#" id="navbarDropdown" role="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Projects by status</a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a href="#">Works ongoing</a></li>
-                                <li><a href="#">Delayed</a></li>
-                                <li><a href="#">Complete</a></li>
+                                <li><a href="work_ongoing.php">Works ongoing</a></li>
+                                <li><a href="delayed.php">Delayed</a></li>
+                                <li><a href="complete.php">Complete</a></li>
                         </ul>
                     </li>
     </div>
     <!-- /.sidebar-collapse -->
-</div>
+
             <!-- /.navbar-static-side -->
         </nav>
-        <div id="page-wrapper" class="page_wrapper">
-           <table id="memListTable" class="display" style="width:100%">
-    <thead>
-        <tr>
-            <th>Projects</th>
-            <th>Department</th>
-            <th>Ward/Sub-ward</th>
-            <th>Location/Sub-location</th>
-            <th>Status</th>
-            <th>FY</th>
-            <th>Budget</th>
-        </tr>
-    </thead>
-    <tfoot>
-        <tr>
-            <th>Projects</th>
-            <th>Department</th>
-            <th>Ward/Sub-ward</th>
-            <th>Location/Sub-location</th>
-            <th>Status</th>
-            <th>FY</th>
-            <th>Budget</th>
-        </tr>
-    </tfoot>
-</table>
+       <?php  
+ $connect = mysqli_connect("localhost", "root", "", "cpms_project");  
+ $query ="SELECT * FROM projects ORDER BY project_id DESC";  
+ $result = mysqli_query($connect, $query);  
+ ?>  
+ <!DOCTYPE html>  
+ <html>  
+      <head>  
+           <title></title>  
+           <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>  
+           <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />  
+           <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>  
+           <script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>            
+           <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css" />  
+      </head>  
+      <body>  
+           <br /><br />  
+           <div class="container" id="page-wrapper">  
+                <h3 align="center">County Projects</h3>  
+                <br />  
+                <div class="table-responsive">  
+                     <table id="county_data" class="table table-striped table-bordered col-12" style="width: 100%">  
+                          <thead>
+                                    <tr>
+                                        <th>Projects</th>
+                                        <th>Department</th>
+                                        <th>Ward/Sub-ward</th>
+                                        <th>Location/Sub-location</th>
+                                        <th>Status</th>
+                                        <th>FY</th>
+                                        <th>Budget</th>
+                                    </tr>
+                                </thead>  
+                          <?php  
+                          while($row = mysqli_fetch_array($result))  
+                          {  
+                               echo '  
+                               <tr>  
+                                    <td>'.$row["project"].'</td>  
+                                    <td>'.$row["department"].'</td>  
+                                    <td>'.$row["ward"].'</td>  
+                                    <td>'.$row["location"].'</td>  
+                                    <td>'.$row["status"].'</td>  
+                                    <td>'.$row["FY"].'</td>  
+                                    <td>'.$row["budget"].'</td>  
+                               </tr>  
+                               ';  
+                          }  
+                          ?>  
+                     </table>
 
+                     <script
+        src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
 
-        </div>
-         <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.1/js/dataTables.buttons.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.flash.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.html5.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.print.min.js "></script>
+    
+<script type="text/javascript">
+  $(document).ready( function () {
+    $('#county_data').DataTable({
+       dom: 'Bfrtip',
+       buttons: [
+        'copy', 'excel', 'pdf'
+    ]
+    });
+} );
+</script>  
+                </div>  
+           </div>  
+      </body>  
+ </html>  
+ <script>  
+ $(document).ready(function(){  
+      $('#county_data').DataTable();  
+ });  
+ </script>  
+        <!--  <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.1/js/dataTables.buttons.min.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.flash.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
-
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script> -->
+<!-- 
     <script type="text/javascript">
         
     $(document).ready(function() {
@@ -193,7 +187,7 @@ $(document).ready(function(){
         ]
     } );
 } );
-    </script>
+    </script> -->
    </div>
 
             <!-- /.row -->
@@ -206,7 +200,6 @@ $(document).ready(function(){
     Copyright &copy; 2020 <a href="">Government of Nakuru County </a>
   </div>
 </footer>
-
 
 
 </body>
