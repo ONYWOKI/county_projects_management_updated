@@ -12,6 +12,7 @@
     <title>County Projects Management System</title>
 
     <!-- Bootstrap Core CSS -->
+    <script src="js/jquery.backstretch.js"></script>
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
     
     <link href="../assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -44,6 +45,7 @@
        <script type="text/javascript" src="assets\js\jquery.backstretch.js"></script>
 
 
+<script type="//cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="assets/js/jquery/test/jquery.backstretch.min.js"></script>
 
@@ -59,6 +61,7 @@
 	.onyesha{
 		display: block;
 	}
+
 	</style>
 	
 	<?php include('includes/links.php');?>
@@ -138,14 +141,49 @@
 
 <script>
     $.backstretch([
-      "pot-holder.jpg",
-      "coffee.jpg",
-      "dome.jpg"
-      ], {
+        "includes/images/infrastructurenkr.jpg",
+        "includes/images/lakenkr.jpg",
+        "../includes/images/nakuruhospital.jpg"
+        ], {
         fade: 750,
         duration: 4000
     });
+
 </script>
+<!-- <div id="myCarousel" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <!-- <ol class="carousel-indicators">
+    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+    <li data-target="#myCarousel" data-slide-to="1"></li>
+    <li data-target="#myCarousel" data-slide-to="2"></li>
+  </ol> -->
+
+  <!-- Wrapper for slides -->
+  <!-- <div class="carousel-inner">
+    <div class="item active">
+      <img src="assets/img/Vehicles.jpg" class="img-responsive">
+    </div> -->
+
+    <!-- <div class="item">
+      <img src="assets/img/RoadsProject.jpg" alt="img-responsive">
+    </div> -->
+
+   <!--  <div class="item">
+      <img src="assets/img/agric.jpg" alt="img-responsive">
+    </div>
+  </div> -->
+
+  <!-- Left and right controls -->
+  <!-- <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+    <span class="sr-only">Previous</span>
+  </a> -->
+  <!-- <a class="right carousel-control" href="#myCarousel" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div> --> -->
+
 
 
 

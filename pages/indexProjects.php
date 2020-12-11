@@ -33,7 +33,7 @@ $(document).ready(function(){
                     <span class="icon-bar"></span>
                     <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="index.php" style="color: white; font-size: 15px;" >Nakuru County Projects Management System</a>
+                <a class="navbar-brand" href="#" style="color: white; font-size: 15px;" >Nakuru County Projects Management System</a>
             </div>
         <!-- Navigation -->
         <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0" id="navsidebar">
@@ -265,7 +265,7 @@ $(document).ready(function(){
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-12">
-                                    <iframe src="../charts/budget_Allocation_per_department.php" style="border:0; height: 450px; width:100%;"></iframe>
+                                    <iframe src="../charts/budget_Allocation_per_department.php" style="border:0; height: 400px; width:100%;"></iframe>
                                 </div>
                                 <!-- /.col-lg-12 (nested) -->
                             </div>

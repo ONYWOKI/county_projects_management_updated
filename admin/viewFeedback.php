@@ -102,8 +102,8 @@ $(document).ready(function(){
 
 <?php  
  $connect = mysqli_connect("localhost", "root", "", "cpms_project");  
- $query ="SELECT * FROM citizen ORDER BY project_id DESC";  
- $result = mysqli_query($connect, $query);  
+ $query ="SELECT `projects`.`project_id` as pid, `projects`.`project` , `citizen`.* FROM `projects`,`citizen` WHERE `projects`.`project_id` = `citizen`.`project_id` ";  
+ $result = mysqli_query($connect, $query) or die( mysqli_error($connect));;  
  ?>  
  <!DOCTYPE html>  
  <html>  
@@ -124,6 +124,7 @@ $(document).ready(function(){
                      <table id="county_data" class="table table-striped table-bordered" style="width: 100%">  
                           <thead>
                                     <tr>
+                                      <th>Project</th>
                                         <th>email</th>
                                         <th>phone</th>
                                         <th>message</th>
@@ -135,6 +136,7 @@ $(document).ready(function(){
                           {  
                                echo '  
                                <tr>  
+                                    <td>'.$row["project"].'</td> 
                                     <td>'.$row["email"].'</td>  
                                     <td>'.$row["phone"].'</td>  
                                     <td>'.$row["message"].'</td>  

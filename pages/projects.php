@@ -12,6 +12,7 @@ $(document).ready(function(){
 });
 </script> -->
 
+
 <script>
 $(document).ready(function(){
   $('.dropdown a.dropdown-toggle').on("click", function(e){
@@ -20,6 +21,10 @@ $(document).ready(function(){
     e.preventDefault();
   });
 });
+</script>
+<script type="text/javascript">
+  
+
 </script>
 </head>
 
@@ -111,6 +116,7 @@ $(document).ready(function(){
                      <table id="county_data" class="table table-striped table-bordered col-12" style="width: 100%">  
                           <thead>
                                     <tr>
+                                      <th>Project Description</th>
                                         <th>Projects</th>
                                         <th>Department</th>
                                         <th>Ward/Sub-ward</th>
@@ -125,14 +131,48 @@ $(document).ready(function(){
                           {  
                                echo '  
                                <tr>  
+                                    <td>
+                                     <button class="more-details" eid="'.$row['project_id'].'"><i class="fa fa-plus fa-fw"></i></button>
+                                     <div id="'.$row['project_id'].'" style="display:none;">
+                                     <ul style="list-style:none">
+                                       <li><a href="./viewprojectdetails.php?pid='.$row['project_id'].'"><i class="fa fa-file"></i>View Details</a></li>
+                                        
+                                        <li><a href="#"  type="button" data-toggle="modal" data-target="#myModal'.$row["project_id"].'"><i class="fa fa-envelope"></i>Give Feedback</a></li>
+                                        </ul>
+
+                                        <div id="myModal'.$row["project_id"].'" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h3 id="myModalLabel'.$row["project_id"].'">Please Give Us Your Feedback</h3>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal col-sm-12" action="feedback.php?pid='.$row["project_id"].'" method="post">
+                    <div class="form-group"><label>Name</label><input name="name" value="" class="form-control required" placeholder="Your name" data-placement="top" data-trigger="manual" data-content="Must be at least 3 characters long, and must only contain letters." type="text" required></div>
+                    <div class="form-group"><label>Message</label><textarea  name="message" id="message" value="" class="form-control" placeholder="Your message here.." data-placement="top" data-trigger="manual" required></textarea>Remaining: <b><span class="remaining">150</span></b></div>
+                    <div class="form-group"><label>E-Mail</label><input name="email"  value="" class="form-control email" placeholder="email@you.com (Optional)" data-placement="top" data-trigger="manual" data-content="Must be a valid e-mail address (user@gmail.com)" type="text"></div>
+                    <div class="form-group"><label>Phone</label><input name="phone"  value="" class="form-control phone" placeholder="+254...(So that we can contact you)" data-placement="top" data-trigger="manual" data-content="Must be a valid phone number" type="text" required></div>
+                    <input type="hidden" value="" name="project_id" class="project_id"/>
+                    <div class="form-group"><button type="submit" name="save" class="btn btn-success pull-right">Send</button></div>
+                </form>
+            </div>              
+            <div class="modal-footer">
+                <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+                                     </div>
+                                    </td> 
                                     <td>'.$row["project"].'</td>  
                                     <td>'.$row["department"].'</td>  
                                     <td>'.$row["ward"].'</td>  
                                     <td>'.$row["location"].'</td>  
                                     <td>'.$row["status"].'</td>  
                                     <td>'.$row["FY"].'</td>  
-                                    <td>'.$row["budget"].'</td>  
-                               </tr>  
+                                    <td>'.$row["budget"].'</td> 
                                ';  
                           }  
                           ?>  
@@ -171,28 +211,12 @@ $(document).ready(function(){
       $('#county_data').DataTable();  
  });  
  </script>  
-        <!--  <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
-    <script type="text/javascript" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
-    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.1/js/dataTables.buttons.min.js"></script>
-    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.flash.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script> -->
-<!-- 
-    <script type="text/javascript">
-        
-    $(document).ready(function() {
-    $('#example').DataTable( {
-        dom: 'Bfrtip',
-        buttons: [
-            'copy', 'csv', 'excel', 'pdf', 'print'
-        ]
-    } );
-} );
-    </script> -->
+
    </div>
 
             <!-- /.row -->
             <!--  -->
-   <?php include('../includes/modal.php');?>
+
     
     </div>
 <footer class="footer">
@@ -204,4 +228,11 @@ $(document).ready(function(){
 
 </body>
 
+  <script type="text/javascript">
+    $('body').delegate('.more-details', 'click', function(e){
+      var id = $(this).attr('eid');
+      $('#'+id).toggle();
+      console.log($('#'+id));
+    });
+  </script>
 </html>

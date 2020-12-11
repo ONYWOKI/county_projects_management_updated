@@ -2,10 +2,6 @@
 <html lang="en">
     <head>
      <?php include('../includes/links.php');?>
-     <link rel="stylesheet" type="text/css" href="../css/style.css">
-     <style type="text/css">
-       
-     </style>
 <!-- <script>
 $(document).ready(function(){
     $('#county_data').DataTable({
@@ -15,6 +11,43 @@ $(document).ready(function(){
     });
 });
 </script> -->
+<style type="text/css">
+  div .last{
+        display: inline-block;
+        background-color: #C71585;
+        border-radius: 30px;
+        border: 4px double #cccccc;
+        color: #eeeeee;
+        text-align: center;
+        font-size: 28px;
+        padding: 20px;
+        width: 100px;
+        -webkit-transition: all 0.5s;
+        -moz-transition: all 0.5s;
+        -o-transition: all 0.5s;
+        transition: all 0.5s;
+        cursor: pointer;
+        margin: 5px;
+        height: 40px;
+        line-height: 2px;
+        position: relative;
+        text-align: center;
+  }
+.last a{
+  color:white;
+}
+div #add_button{
+   background-color: #C71585;
+   border-radius: 30px;
+   width: 100px;
+   font-size: 15px;
+   height: 50px;
+   text-align: center;
+   position: relative;
+   margin-right: 5px;
+    border: 4px double #cccccc;
+    border-color: white;
+</style>
 
 <script>
 $(document).ready(function(){
@@ -33,7 +66,6 @@ $(document).ready(function(){
     <div id="wrapper" class="wrapper">
 
         <div class="navbar-header" style="background-color: #C71585">
-
                 <button type="button" class="navbar-toggle navbartoggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
@@ -42,14 +74,14 @@ $(document).ready(function(){
                     <i class="fa fa-bars"></i>
                 </button>
                 <a class="navbar-brand" href="index.php" style="color: white">Nakuru County Projects Management System</a>
-            </div>
+            <li class="last" style="float: right; list-style: none; font-size: 15px; margin-right: 50px; margin-top: 2px; text-align:center; " ><a href="../index.php">Log out</a></li>
 
+            </div>
 
         <!-- Navigation -->
         <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0" id="navsidebar">
             
             <!-- /.navbar-header -->
-            
 
             <ul class="nav navbar-top-links navbar-right">
                 <li class="dropdown">
@@ -114,16 +146,11 @@ $(document).ready(function(){
            <br /><br />  
            <div class="container" id="page-wrapper">  
                 <h3 align="center">County Projects</h3>  
-                <br />  
-               
+                <br /> 
                 <div class="table-responsive"> 
                 <div align="right">
-					<button type="button" id="add_button" data-toggle="modal" data-target="#userModal" class="btn btn-info btn-lg">Add Project</button><br><br>
-
-				</div> 
-          <li class="nav-item" id="nav_item">
-              <a class="nav-link" href="../index.php">Logout</a>
-            </li>
+          <button type="button" id="add_button" data-toggle="modal" data-target="#userModal" class="btn btn-info btn-lg">Add Project</button><br><br> 
+                <div class="table-responsive">  
                      <table id="county_data" class="table table-striped table-bordered col-12" style="width: 100%">  
                           <thead>
                                     <tr>
@@ -134,8 +161,9 @@ $(document).ready(function(){
                                         <th>Status</th>
                                         <th>FY</th>
                                         <th>Budget</th>
-                                         <th>Action</th>
-                                    </tr>
+                                      
+
+                                   </tr>
                                 </thead>  
                           <?php  
                           while($row = mysqli_fetch_array($result))  
@@ -149,9 +177,7 @@ $(document).ready(function(){
                                     <td>'.$row["status"].'</td>  
                                     <td>'.$row["FY"].'</td>  
                                     <td>'.$row["budget"].'</td>  
-
                                </tr>  
-
                                ';  
                           }  
                           ?>  
@@ -170,91 +196,30 @@ $(document).ready(function(){
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.html5.min.js"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.print.min.js "></script>
+<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.print.min.js "></script>
+<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.print.min.js "></script>
     
-<script type="text/javascript">
-  $(document).ready( function () {
-    $('#county_data').DataTable({
-       dom: 'Bfrtip',
-       buttons: [
-        'copy', 'excel', 'pdf'
-    ]
-    });
-} );
-</script>  
-</script>  
+ 
                 </div>  
            </div>  
       </body>  
  </html>  
-<!--  <script>  
- $(document).ready(function(){  
-      $('#county_data').DataTable();  
- });  
- </script>  -->
- 
-        <!--  <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
-    <script type="text/javascript" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
-    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.1/js/dataTables.buttons.min.js"></script>
-    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.flash.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script> -->
-<!-- 
-    <script type="text/javascript">
-        
-    $(document).ready(function() {
-    $('#example').DataTable( {
-        dom: 'Bfrtip',
-        buttons: [
-            'copy', 'csv', 'excel', 'pdf', 'print'
-        ]
-    } );
-} );
-    </script> -->
+ <script>  
+ //$(document).ready(function(){  
+  //    $('#county_data').DataTable();  
+//
+ //$('#county_data').dataTable({
+  //  destroy: true,
+   // aaData: response.data
+//});
+ </script>  
+
    </div>
+
 
             <!-- /.row -->
             <!--  -->
    <?php include('../includes/modal.php');?>
-   <div id="userModal" class="modal fade">
-	<div class="modal-dialog">
-		<form method="post" id="user_orm" enctype="multipart/form-data" action="addProjects.php">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal">&times;</button>
-					<h4 class="modal-title">Add User</h4>
-				</div>
-				<div class="modal-body">
-					<label>Project Name</label>
-					<input type="text" name="project" id="project_name" class="form-control" required />
-					<br/>
-					<label>Department</label>
-					<input type="text" name="department" id="department" class="form-control" required />
-					<br/>
-					<label>Ward</label>
-					<input type="text" name="ward" id="ward" class="form-control" required />
-					<br />
-					<label>Location</label>
-					<input type="text" name="location" id="location" class="form-control" required />
-					<br />
-					<label>Status</label>
-					<input type="text" name="status" id="status" class="form-control" required />
-					<br />
-					<label>Financial Year</label>
-					<input type="text" name="FY" id="financial_year" class="form-control" required />
-					<br />
-					<label>Budget</label>
-					<input type="text" name="budget" id="budget" class="form-control" required />
-					<br />
-				</div>
-				<div class="modal-footer">
-					<input type="hidden" name="user_id" id="user_id" />
-					<input type="hidden" name="operation" id="operation" />
-					<input type="submit" name="action" id="action" class="btn btn-success" value="Add" name="save" />
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				</div>
-			</div>
-		</form>
-	</div>
-</div>
     
     </div>
 <footer class="footer">
@@ -263,47 +228,147 @@ $(document).ready(function(){
   </div>
 </footer>
 
-<script type="text/javascript">
- 		var dataTable = $('#county_data').DataTable({
-		"processing":true,
-		"serverSide":true,
-		"order":[],
-		"ajax":{
-			url:"fetch.php",
-			type:"POST"
-		},
-		"columnDefs":[
-			{
-				// "targets":[0, 3, 4],
-				// "orderable":false,
-			},
-		],
 
-	});
+</body>
+
+</html>
+<?php include('../includes/modal.php');?>
+   <div id="userModal" class="modal fade">
+  <div class="modal-dialog">
+    <form method="post" id="user_orm" enctype="multipart/form-data" action="addProjects.php">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Add Project</h4>
+        </div>
+        <div class="modal-body">
+          <label>Project Name</label>
+          <input type="text" name="project" id="project_name" class="form-control" required />
+          <br/>
+          <label>Department </label>
+          <select class="form-control" id="department" name="department">
+            <option value="education_ict">Education & ICT</option>
+            <option value="agric">Agriculture</option>
+            <option value="infrastructure">Infrastructure</option>
+            <option value="finance">Finance</option>
+            <option value="water_environment">Water & Environment</option>
+            <option value="health">Health</option>
+            <option value="public_service">Public Service</option>
+            <option value="lands">Lands</option>
+            <option value="trade">Trade</option>
+            <option value="youth">Youth</option>
+          </select>
+        
+          <br/><br/> 
+          <label>Ward </label>
+           <select class="form-control" name="ward">
+            <option value="elementaita">Elementaita</option>
+            <option value="murindati">Murindati</option>
+            <option value="bahati">Bahati</option>
+            <option value="nakuru_West">Nakuru West</option>
+            <option value="rongai">Rongai</option>
+            <option value="keringet">Keringet</option>
+            <option value="kamara">Kamara</option>
+            <option value="maai_Mahiu">Maai Mahiu</option>
+            <option value="olkaria">Olkaria</option>
+            <option value="biashara">Biashara</option>
+            <option value="hellsgate">Hellsgate</option>
+          </select>
+          
+          <br /><br/>
+          <label>Location</label>
+           <select class="form-control" name="location">
+            <option value="subukia">Subukua</option>
+            <option value="molo">Molo</option>
+            <option value="njoro">Njoro</option>
+            <option value="gilgil">Gilgil</option>
+            <option value="naivasha">Naivasha</option>
+            <option value="kuresoi_north">Kuresoi North</option>
+            <option value="bahati">Bahati</option>
+            <option value="rongai">Rongai</option>
+            <option value="kiamaina">Kiamaina</option>
+            <option value="lanet">Lanet</option>
+
+          </select>
+         <!--  <input type="text" name="location" id="location" class="form-control" required / -->
+          <br /><br/>
+          <label>Status </label>
+          <select class="form-control" name="status">
+            <option value="compelet">Complete</option>
+            <option value="ongoing">Ongoing</option>
+            <option value="in_procurement">In Procurement</option>
+            <option value="suspended">Suspended</option>
+            <option value="delayed">Delayed</option>
+          </select>
+         <!--  <input type="text" name="status" id="status" class="form-control" required /> -->
+          <br /><br/>
+          <label>Financial Year</label>
+          <input type="text" name="FY" id="financial_year" class="form-control" required />
+          <br />
+          <label>Budget</label>
+          <input type="text" name="budget" id="budget" class="form-control" required />
+          <br />
+          <label>Source of Funds</label>
+          <input type="text" name="source_of_funds" id="source_of_funds" class="form-control" required />
+          <br /> 
+          <label>Implementing Agency</label>
+          <input type="text" name="implementing_agency" id="implementing_agency" class="form-control" required />
+          <br /> 
+          <label>Remarks</label>
+          <input type="text" name="remarks" id="remarks" class="form-control" required />
+          <br />
+        </div>
+        <div class="modal-footer">
+          <input type="hidden" name="user_id" id="user_id" />
+          <input type="hidden" name="operation" id="operation" />
+          <input type="submit" name="action" id="action" class="btn btn-success" value="Add" name="save" />
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+</div>
+<footer class="footer">
+  <div class="">
+    Copyright &copy; 2020 <a href="">Government of Nakuru County </a>
+  </div>
+</footer>
+<script type="text/javascript">
+  $(document).ready( function () {
+    $('#county_data').DataTable({
+       dom: 'Bfrtip',
+       buttons: [ 'copy', 'excel', 'pdf']
+
+    });
+} );
+</script> 
+<script type="text/javascript">
+
+  /*
+  $(document).ready(function(){
+   $('#county_data').DataTable({
+      'processing': true,
+      'serverSide': true,
+      'serverMethod': 'post',
+      'ajax': {
+          'url':'fetch.php'
+      },
+      'columns': [
+         { data: 'project' },
+         { data: 'department' },
+         { data: 'ward' },
+         { data: 'location' },
+         { data: 'status' },
+         { data: 'FY' },
+         { data: 'budget' },
+      ]
+   });
+});
+*/
  </script> 
 
-<script type="text/javascript">
-$(document).on('click', '.update', function(){
-		var user_id = $(this).attr("project_id");
-		$.ajax({
-			url:"fetch_single.php",
-			method:"POST",
-			data:{project_id:project_id},
-			dataType:"json",
-			success:function(data)
-			{
-				$('#userModal').modal('show');
-				// $('#first_name').val(data.first_name);
-				// $('#last_name').val(data.last_name);
-				// $('.modal-title').text("Edit User");
-				$('#project_id').val(project_id);
-				// $('#user_uploaded_image').html(data.user_image);
-				$('#action').val("Edit");
-				$('#operation').val("Edit");
-			}
-		})
-	});
-</script>
+
 </body>
 
 </html>

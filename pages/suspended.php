@@ -1,4 +1,4 @@
-suspended.php<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
  <?php include('../includes/links.php');?>

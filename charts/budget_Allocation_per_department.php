@@ -4,7 +4,7 @@
 <title>Charts</title>
 <style type="text/css">
 BODY {
-    width: 550PX;
+    width: 900PX;
 }
 
 #chart-container {
